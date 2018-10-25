@@ -46,8 +46,6 @@ int main(int argc, char **argv)
 		
 		touchY = touch.py / 16;
 		touchX = touch.px / 16;
-		touchY++;
-		touchX++;
 
         printf("\x1b[3;1H");
 
@@ -57,7 +55,7 @@ int main(int argc, char **argv)
             hidTouchRead(&touch, i);
 
             //Print the touch screen coordinates
-            printf("[point_id=%d] px=%03d, py=%03d, row=%d, column=%d\n", i, touch.px, touch.py, touchY, touchX);
+            printf("[point_id=%d] px=%03d, py=%03d, row=%02d, column=%02d     \n", i, touch.px, touch.py, touchY, touchX);
         }
 
         gfxFlushBuffers();
